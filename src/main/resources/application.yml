@@ -1,0 +1,87 @@
+micronaut:
+  server:
+    port: 1010
+  jimmer:
+    language: java
+    dialect: org.babyfish.jimmer.sql.dialect.H2Dialect
+    showSql: true
+    prettySql: true
+    inlineSqlVariables: true
+    triggerType: TRANSACTION_ONLY
+    databaseValidation:
+      mode: WARNING
+    errorTranslator:
+      disabled: false
+      debugInfoSupported: true
+      debugInfoMaxStackTraceCount: 200000
+    client:
+      ts:
+        path: /Code/ts.zip
+      openapi:
+        path: /openapi.yml
+        ui-path: /openapi.html
+        properties:
+          info:
+            title: Jimmer REST Example(Java)
+            description: This is the OpenAPI UI of Quarkus-Jimmer-Extension REST Example (Java)
+            version: 0.0.1.CR1
+          securities:
+            - tenantHeader: [ 1 ]
+            - OAuth2: [ 2 ]
+          components:
+            securitySchemes:
+              tenantHeader:
+                type: apiKey
+                name: tenant
+                in: HEADER
+              OAuth2:
+                type: oauth2
+                flows:
+                  authorizationCode:
+                    authorizationUrl: https://example.com/oauth/authorize
+                    tokenUrl: https://example.com/oauth/token
+                    scopes:
+                      read: Grants read access
+                      write: Grants write access
+                      admin: Grants access to admin operations
+                  password:
+                    tokenUrl: http://localhost:9000/oauth2/token
+                    scopes:
+                      address: address
+                      openid: openid
+                      message: message.read
+                      groups: groups
+                      perms: perms
+                      client: client.create
+          servers:
+            - url: http://${micronaut.jimmer.client.openapi.properties.servers[0].variables.username.defaultValue}:${micronaut.jimmer.client.openapi.properties.servers[0].variables.port.defaultValue}
+              description: The production API server
+              variables:
+                username:
+                  # note! no enum here means it is an open value
+                  defaultValue: localhost
+                  description: this value is assigned by the service provider, in this example `gigantic-server.com`
+                port:
+                  enums:
+                    - '1010'
+                    - '443'
+                  defaultValue: '1010'
+                basePath:
+                  # open meaning there is the opportunity to use special base paths as assigned by the provider, default is `v2`
+                  defaultValue: v2
+
+
+
+
+
+
+datasources:
+  default:
+    dialect: H2
+    schema-generate: CREATE_DROP
+    url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    driver-class-name: org.h2.Driver
+logger:
+  levels:
+    io.micronaut.context.env: DEBUG
