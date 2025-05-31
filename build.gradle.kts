@@ -14,22 +14,12 @@ repositories {
 
 dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
-    implementation("io.github.flynndi:micronaut-jimmer:0.0.0.3-test")
+    implementation("io.github.flynndi:micronaut-jimmer:0.0.0.4-test")
     runtimeOnly("org.yaml:snakeyaml")
     runtimeOnly("com.h2database:h2")
-    implementation("io.micronaut.data:micronaut-data-jdbc")
-    implementation("io.micronaut.data:micronaut-data-tx-jdbc")
-    implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-
-    compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     testImplementation("io.micronaut:micronaut-http-client")
-
-    implementation("org.babyfish.jimmer:jimmer-sql:$jimmerVersion")
-    implementation("org.babyfish.jimmer:jimmer-sql-kotlin:$jimmerVersion")
-    implementation("org.babyfish.jimmer:jimmer-client:$jimmerVersion")
-    implementation("org.babyfish.jimmer:jimmer-client-swagger:$jimmerVersion")
     annotationProcessor("org.babyfish.jimmer:jimmer-apt:$jimmerVersion")
 }
 

@@ -1,10 +1,7 @@
 package io.micronaut.test.controller;
 
 import io.micronaut.http.HttpResponse;
-import io.micronaut.http.annotation.Body;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.*;
 import io.micronaut.test.entity.Book;
 import io.micronaut.test.entity.BookFetcher;
 import io.micronaut.test.entity.Tables;
