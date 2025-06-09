@@ -1,12 +1,10 @@
 package io.micronaut.test;
 
-import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.event.ApplicationEventListener;
 import io.micronaut.context.event.StartupEvent;
 import io.micronaut.data.connection.jdbc.advice.DelegatingDataSource;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
-import org.babyfish.jimmer.sql.JSqlClient;
 
 import javax.sql.DataSource;
 import java.io.InputStream;
@@ -19,9 +17,6 @@ public class AppLifecycleBean implements ApplicationEventListener<StartupEvent> 
 
 	@Inject
 	private DataSource dataSource;
-
-	@Inject
-	ApplicationContext applicationContext;
 
 
 	@Override

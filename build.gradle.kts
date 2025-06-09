@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
-    implementation("io.github.flynndi:micronaut-jimmer:0.0.0.4-test")
+    implementation("io.github.flynndi:micronaut-jimmer:0.0.0.7-test")
     runtimeOnly("org.yaml:snakeyaml")
     runtimeOnly("com.h2database:h2")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")

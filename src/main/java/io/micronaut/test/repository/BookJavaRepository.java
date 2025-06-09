@@ -1,6 +1,6 @@
 package io.micronaut.test.repository;
 
-import io.micronaut.repo.support.AbstractJavaRepository;
+import io.micronaut.jimmer.repo.support.AbstractJavaRepository;
 import io.micronaut.test.entity.Book;
 import jakarta.inject.Singleton;
 import org.babyfish.jimmer.sql.JSqlClient;

@@ -3,13 +3,15 @@ micronaut:
     port: 1010
   jimmer:
     language: java
-    dialect: org.babyfish.jimmer.sql.dialect.H2Dialect
-    showSql: true
-    prettySql: true
-    inlineSqlVariables: true
-    triggerType: TRANSACTION_ONLY
-    databaseValidation:
-      mode: WARNING
+    datasources:
+      default:
+        dialect: org.babyfish.jimmer.sql.dialect.H2Dialect
+        showSql: true
+        prettySql: true
+        inlineSqlVariables: true
+        triggerType: BINLOG_ONLY
+        databaseValidation:
+          mode: WARNING
     errorTranslator:
       disabled: false
       debugInfoSupported: true
