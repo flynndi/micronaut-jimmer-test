@@ -21,6 +21,8 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     testImplementation("io.micronaut:micronaut-http-client")
     annotationProcessor("org.babyfish.jimmer:jimmer-apt:$jimmerVersion")
+    implementation("io.micronaut:micronaut-inject-java")
+    annotationProcessor("io.micronaut:micronaut-inject-java")
 }
 
 
