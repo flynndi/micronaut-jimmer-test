@@ -1,4 +1,5 @@
 val jimmerVersion: String by project
+val micronautJimmerVersion: String by project
 plugins {
     id("io.micronaut.application") version "4.5.3"
     id("com.gradleup.shadow") version "8.3.6"
@@ -14,7 +15,8 @@ repositories {
 
 dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
-    implementation("io.github.flynndi:micronaut-jimmer:0.0.0.7-test")
+    implementation("io.github.flynndi:micronaut-jimmer:$micronautJimmerVersion")
+    implementation("io.micronaut.data:micronaut-data-model")
     runtimeOnly("org.yaml:snakeyaml")
     runtimeOnly("com.h2database:h2")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
@@ -23,6 +25,8 @@ dependencies {
     annotationProcessor("org.babyfish.jimmer:jimmer-apt:$jimmerVersion")
     implementation("io.micronaut:micronaut-inject-java")
     annotationProcessor("io.micronaut:micronaut-inject-java")
+    annotationProcessor("io.github.flynndi:micronaut-jimmer-apt:$micronautJimmerVersion")
+    annotationProcessor("io.micronaut.sourcegen:micronaut-sourcegen-generator-java")
 }
 
 
